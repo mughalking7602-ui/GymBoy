@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit Gym | Transform Your Body</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary: #ff5e14;
+            --primary-dark: #e04e00;
+            --secondary: #1a1a2e;
+            --secondary-light: #2d2d44;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--light-gray);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .pricing-popular {
+            background-color: var(--primary);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            padding: 30px;
+            list-style: none;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Trainers Section */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .trainer-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trainer-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .trainer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .trainer-card:hover .trainer-img img {
+            transform: scale(1.05);
+        }
+
+        .trainer-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .trainer-social {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .trainer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+
+        .trainer-social a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-links h3, .footer-hours h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3:after, .footer-hours h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Page Content Styles */
+        .page-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+
+        .breadcrumb li a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb li:not(:last-child):after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .page-content {
+            padding: 80px 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: rgba(0, 0, 0, 0.95);
+                transition: var(--transition);
+                padding: 30px;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-dumbbell"></i>Power<span>Fit</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="membership.html" class="btn">Join Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transform Your Body, Transform Your Life</h1>
+            <p>At PowerFit Gym, we provide world-class facilities, expert trainers, and a supportive community to help you achieve your fitness goals. Whether you're a beginner or a pro athlete, we have everything you need.</p>
+            <div>
+                <a href="membership.html" class="btn">Start Your Journey</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose PowerFit</h2>
+                <p>We offer the best facilities and support to help you reach your fitness goals</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Modern Equipment</h3>
+                    <p>State-of-the-art fitness equipment from leading brands to ensure effective workouts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Expert Trainers</h3>
+                    <p>Certified personal trainers with years of experience to guide you on your fitness journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Flexible Schedule</h3>
+                    <p>Open 24/7 to accommodate your busy lifestyle. Work out whenever it's convenient for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About PowerFit Gym</h2>
+                    <p>Founded in 2010, PowerFit Gym has grown to become one of the most respected fitness centers in the region. Our mission is to provide a welcoming, supportive environment where people of all fitness levels can achieve their health and wellness goals.</p>
+                    <p>With over 10,000 square feet of dedicated workout space, we offer a comprehensive range of equipment, classes, and services to meet every fitness need.</p>
+                    <a href="about.html" class="btn">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="PowerFit Gym Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of fitness services to help you achieve your goals</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Personal Training">
+                    </div>
+                    <div class="service-content">
+                        <h3>Personal Training</h3>
+                        <p>One-on-one sessions with certified trainers to create customized workout plans tailored to your specific goals.</p>
+                        <a href="services.html#personal-training" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Group Classes">
+                    </div>
+                    <div class="service-content">
+                        <h3>Group Classes</h3>
+                        <p>From yoga and pilates to high-intensity interval training (HIIT), we offer a variety of group fitness classes.</p>
+                        <a href="services.html#group-classes" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80" alt="Nutrition Counseling">
+                    </div>
+                    <div class="service-content">
+                        <h3>Nutrition Counseling</h3>
+                        <p>Our certified nutritionists will help you develop healthy eating habits to complement your fitness routine.</p>
+                        <a href="services.html#nutrition" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Membership Plans</h2>
+                <p>Choose the plan that best fits your fitness journey and budget</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">$29<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Access to gym facilities</li>
+                        <li>Locker room access</li>
+                        <li>Free Wi-Fi</li>
+                        <li>Basic fitness assessment</li>
+                        <li>1 free guest pass per month</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="membership.html" class="btn">Select Plan</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="pricing-header pricing-popular">
+                        <h3>Pro</h3>
+                        <div class="price">$49<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Basic</li>
+                        <li>Unlimited group classes</li>
+                        <li>2 personal training sessions/month</li>
+                        <li>Nutrition consultation</li>
+                        <li>3 free guest passes per month</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="membership.html" class="btn">Select Plan</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Elite</h3>
+                        <div class="price">$79<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>Unlimited personal training</li>
+                        <li>Access to all club locations</li>
+                        <li>Monthly body composition analysis</li>
+                        <li>5 free guest passes per month</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="membership.html" class="btn">Select Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="trainers section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Trainers</h2>
+                <p>Our certified trainers are here to guide you on your fitness journey</p>
+            </div>
+            
+            <div class="trainers-grid">
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trainer Sarah Johnson">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Strength & Conditioning Specialist</p>
+                        <p>With over 10 years of experience, Sarah specializes in strength training and weight loss programs.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Trainer Mark Davis">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Mark Davis</h3>
+                        <p>CrossFit & HIIT Expert</p>
+                        <p>Mark is a certified CrossFit Level 3 trainer with a passion for high-intensity functional training.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Trainer Lisa Chen">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Lisa Chen</h3>
+                        <p>Yoga & Mindfulness Coach</p>
+                        <p>Lisa brings 8 years of experience in yoga, meditation, and holistic wellness practices.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us to start your fitness journey today</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>123 Fitness Street, Health City, HC 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p>info@powerfitgym.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Friday: 5:00 AM - 11:00 PM</p>
+                            <p>Saturday - Sunday: 7:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>Power<span>Fit</span>
+                    </div>
+                    <p>PowerFit Gym is dedicated to helping individuals achieve their fitness goals in a supportive and motivating environment. Join our community today!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h3>Opening Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span> <span>5:00 AM - 11:00 PM</span></li>
+                        <li><span>Saturday</span> <span>7:00 AM - 9:00 PM</span></li>
+                        <li><span>Sunday</span> <span>7:00 AM - 9:00 PM</span></li>
+                        <li><span>Holidays</span> <span>8:00 AM - 6:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 PowerFit Gym. All rights reserved. | Designed for fitness enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} as soon as possible.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('#mainNav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
